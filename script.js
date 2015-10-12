@@ -25,16 +25,16 @@ function printAckermann(pair) {
 
   var verbose = false;
 
-  var COMMA = verbose ? ", " : ",";
-  var OPEN = verbose ? "A(" : "A";
-  var CLOSE = verbose ? ")" : "";
+  var COMMA = verbose ? ', ' : ',';
+  var OPEN = verbose ? 'A(' : 'A';
+  var CLOSE = verbose ? ')' : '';
 
-  var prefix = "";
-  var postfix = "";
+  var prefix = '';
+  var postfix = '';
   var infix;
 
   while (typeof pair.n != 'number') {
-    if (pair.m != null) {
+    if (pair.m !== null) {
       prefix += (OPEN + pair.m + COMMA);
       postfix += CLOSE;
     }
@@ -42,8 +42,8 @@ function printAckermann(pair) {
     pair = pair.n;
   }
 
-  if (pair.m != null) {
-    infix = OPEN + pair.m + COMMA + pair.n + CLOSE
+  if (pair.m !== null) {
+    infix = OPEN + pair.m + COMMA + pair.n + CLOSE;
   } else {
     infix = pair.n;
   }
@@ -66,7 +66,7 @@ function step(pair) {
 var test = new Pair(null, new Pair(3, 3));
 console.log(printAckermann(test));
 
-while(typeof test.n != 'number') {
+while (typeof test.n != 'number') {
   step(test);
   console.log(printAckermann(test));
 }
