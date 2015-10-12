@@ -1,6 +1,8 @@
 (function() {
   'use strict';
 
+  var Pair = WILHELM.Pair.Pair;
+
   WILHELM.namespace('WILHELM.Ackermann');
 
   WILHELM.Ackermann = (function(module) {
