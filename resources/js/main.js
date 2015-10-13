@@ -4,7 +4,7 @@
   var Pair = WILHELM.Pair.Pair;
   var Ackermann = WILHELM.Ackermann;
 
-  var test = new Pair(null, new Pair(3, 3));
+  var test = new Pair(null, new Pair(2));
   console.log(Ackermann.print(test));
 
   while (typeof test.n != 'number') {

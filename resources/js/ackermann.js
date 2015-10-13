@@ -39,7 +39,7 @@
 
     function print(pair) {
 
-      var verbose = false;
+      var verbose = true;
 
       var COMMA = verbose ? ', ' : ',';
       var OPEN = verbose ? 'A(' : 'A';

@@ -7,7 +7,7 @@
 
     function Pair(m, n) {
       this.m = m;
-      this.n = n;
+      this.n = (n === undefined) ? m : n;
     }
 
     module.Pair = Pair;
