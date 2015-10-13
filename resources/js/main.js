@@ -1,6 +1,12 @@
 (function() {
   'use strict';
 
+  var Ackermann = function(m, n) {
+    n = (n === undefined) ? m : n;
+    this.list = [m, n];
+  };
+
+  /*
   var Pair = WILHELM.Pair.Pair;
   var Ackermann = WILHELM.Ackermann;
 
@@ -11,4 +17,5 @@
     Ackermann.step(test);
     console.log(Ackermann.print(test));
   }
+  */
 })();
