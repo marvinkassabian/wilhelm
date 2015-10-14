@@ -1,75 +1,61 @@
 (function() {
   'use strict';
 
-  var Pair = WILHELM.Pair.Pair;
-
   WILHELM.namespace('WILHELM.Ackermann');
 
   WILHELM.Ackermann = (function(module) {
 
-    function ackermann(pair) {
+    var Ackermann = function(m, n) {
+      n = (n === undefined) ? m : n;
+      this.list = [m, n];
+    };
 
-      while (typeof pair.n != 'number') {
-        pair = pair.n;
-      }
+    Ackermann.prototype.step = function() {
+      var m;
+      var n;
 
-      var m = pair.m;
-      var n = pair.n;
+      if (this.list.length > 1) {
+        n = this.list.pop();
+        m = this.list.pop();
 
-      if (m === 0) {
-        return n + 1;
-      } else if (m > 0 && n === 0) {
-        return new Pair(m - 1, 1);
-      } else if (m > 0 && n > 0) {
-        return new Pair(m - 1, new Pair(m, n - 1));
-      }
-    }
-
-    function step(pair) {
-
-      var temp = pair;
-      var prev;
-      while (typeof temp.n != 'number') {
-        prev = temp;
-        temp = temp.n;
-      }
-
-      prev.n = ackermann(temp);
-    }
-
-    function print(pair) {
-
-      var verbose = true;
-
-      var COMMA = verbose ? ', ' : ',';
-      var OPEN = verbose ? 'A(' : 'A';
-      var CLOSE = verbose ? ')' : '';
-
-      var prefix = '';
-      var postfix = '';
-      var infix;
-
-      while (typeof pair.n != 'number') {
-        if (pair.m !== null) {
-          prefix += (OPEN + pair.m + COMMA);
-          postfix += CLOSE;
+        if (m === 0) {
+          this.list.push(n + 1);
+        } else if (n === 0) {
+          this.list.push(m - 1, 1);
+        } else {
+          this.list.push(m - 1, m, n - 1);
         }
 
-        pair = pair.n;
-      }
-
-      if (pair.m !== null) {
-        infix = OPEN + pair.m + COMMA + pair.n + CLOSE;
+        return true;
       } else {
-        infix = pair.n;
+        return false;
       }
+    };
 
-      return prefix + infix + postfix;
-    }
+    Ackermann.prototype.toString = function(options) {
+      return recToString(this.list, options);
 
-    module.ackermann = ackermann;
-    module.step = step;
-    module.print = print;
+      function recToString(list, options) {
+
+        options = _.defaults(options || {}, {
+          verbose: true
+        });
+
+        var COMMA = options.verbose ? ', ' : ',';
+        var OPEN = options.verbose ? 'A(' : 'A';
+        var CLOSE = options.verbose ? ')' : '';
+
+        if (list.length === 1) {
+          return _.first(list);
+        } else {
+          return OPEN + _.first(list) + COMMA +
+              recToString(_.tail(list), options) +
+              CLOSE;
+        }
+      }
+    };
+
+    module.Ackermann = Ackermann;
 
     return module;
   })(WILHELM.Ackermann);
