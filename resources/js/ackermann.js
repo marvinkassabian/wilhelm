@@ -5,6 +5,8 @@
 
   WILHELM.Ackermann = (function(module) {
 
+
+
     var Ackermann = function(m, n) {
       n = (n === undefined) ? m : n;
       this.list = [m, n];
@@ -33,13 +35,10 @@
     };
 
     Ackermann.prototype.toString = function(options) {
-      console.log(options);
+
       options = UTIL.defaults(options, {
-        verbose: true,
-        milo: false,
-        milosh: true
+        verbose: true
       });
-      console.log(options);
 
       var OPEN = options.verbose ? 'A(' : 'A';
       var COMMA = options.verbose ? ', ' : ',';
