@@ -3,7 +3,7 @@
 
   var WILHELM = (function() {
 
-    function namespace() {
+    var namespace = function() {
       var a = arguments;
       var o = null;
       var i;
@@ -21,7 +21,7 @@
       }
 
       return o;
-    }
+    };
 
     this.namespace = namespace;
 

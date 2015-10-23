@@ -33,26 +33,30 @@
     };
 
     Ackermann.prototype.toString = function(options) {
-      return recToString(this.list, options);
+      console.log(options);
+      options = UTIL.defaults(options, {
+        verbose: true,
+        milo: false,
+        milosh: true
+      });
+      console.log(options);
 
-      function recToString(list, options) {
+      var OPEN = options.verbose ? 'A(' : 'A';
+      var COMMA = options.verbose ? ', ' : ',';
+      var CLOSE = options.verbose ? ')' : '';
 
-        options = _.defaults(options || {}, {
-          verbose: true
-        });
-
-        var COMMA = options.verbose ? ', ' : ',';
-        var OPEN = options.verbose ? 'A(' : 'A';
-        var CLOSE = options.verbose ? ')' : '';
+      var recToString = function(list) {
 
         if (list.length === 1) {
-          return _.first(list);
+          return list[0];
         } else {
-          return OPEN + _.first(list) + COMMA +
-              recToString(_.tail(list), options) +
+          return OPEN + list[0] + COMMA +
+              recToString(list.slice(1), options) +
               CLOSE;
         }
-      }
+      };
+
+      return recToString(this.list);
     };
 
     module.Ackermann = Ackermann;
