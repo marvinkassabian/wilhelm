@@ -34,7 +34,7 @@
       },
 
       toString: function(options) {
-        options = UTIL.defaults(options, {
+        options = UTIL.extend(options, {
           verbose: true
         });
 
