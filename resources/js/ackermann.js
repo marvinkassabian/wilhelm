@@ -1,7 +1,7 @@
 (function() {
-  'use strict';
+  "use strict";
 
-  WILHELM.namespace('WILHELM.Ackermann');
+  WILHELM.namespace("WILHELM.Ackermann");
 
   WILHELM.Ackermann = (function(module) {
 
@@ -38,9 +38,9 @@
           verbose: true
         });
 
-        var OPEN = options.verbose ? 'A(' : 'A';
-        var COMMA = options.verbose ? ', ' : ',';
-        var CLOSE = options.verbose ? ')' : '';
+        var OPEN = options.verbose ? "A(" : "A";
+        var COMMA = options.verbose ? ", " : ",";
+        var CLOSE = options.verbose ? ")" : "";
 
         var recToString = function(list) {
 

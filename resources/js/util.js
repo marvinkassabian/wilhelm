@@ -1,5 +1,5 @@
 (function(global) {
-  'use strict';
+  "use strict";
 
   var UTIL = (function() {
 
@@ -14,7 +14,7 @@
       var i;
       var provider;
 
-      if (typeof consumer === 'undefined') {
+      if (typeof consumer === "undefined") {
         consumer = {};
       }
 
@@ -30,7 +30,20 @@
       return consumer;
     };
 
+    var print = function(string) {
+      var line = document.createElement("span");
+      line.innerHTML = string;
+      // document.body.appendChild(line);
+      document.body.insertBefore(line, document.body.firstChild);
+    };
+
+    var println = function(string) {
+      print(string + "<br>");
+    };
+
     this.extend = extend;
+    this.print = print;
+    this.println = println;
 
     return this;
   }).call(UTIL || {});

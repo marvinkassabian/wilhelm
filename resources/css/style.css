@@ -1,0 +1,8 @@
+body {
+  font-family: 'Consolas', monospace;
+  color: green;
+  background: black;
+  font-size: 1em;
+  width: 300em;
+  overflow: scroll;
+}

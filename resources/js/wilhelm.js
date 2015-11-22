@@ -1,5 +1,5 @@
 (function(global) {
-  'use strict';
+  "use strict";
 
   var WILHELM = (function() {
 
@@ -11,10 +11,10 @@
       var d;
 
       for (i = 0; i < a.length; i = i + 1) {
-        d = a[i].split('.');
+        d = a[i].split(".");
         o = WILHELM;
 
-        for (j = ((d[0] === 'WILHELM') ? 1 : 0); j < d.length; j++) {
+        for (j = ((d[0] === "WILHELM") ? 1 : 0); j < d.length; j++) {
           o[d[j]] = o[d[j]] || {};
           o = o[d[j]];
         }

@@ -1,5 +1,5 @@
 (function() {
-  'use strict';
+  "use strict";
 
   var Ackermann = WILHELM.Ackermann.Ackermann;
 
@@ -7,8 +7,8 @@
   a.init(3);
 
   var func = function() {
-    console.log(a.toString({
-      verbose: false
+    UTIL.println(a.toString({
+      verbose: true
     }));
     if (a.step()) {
       setTimeout(func, 10);
